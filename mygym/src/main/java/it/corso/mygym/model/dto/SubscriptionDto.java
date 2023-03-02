@@ -17,6 +17,6 @@ public class SubscriptionDto {
     private LocalDate endDate;
     private int price;
     private boolean isPayed;
-    private int userId;
-    private int gymId;
+    private long userId;
+    private long gymId;
 }
