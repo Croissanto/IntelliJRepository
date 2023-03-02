@@ -1,19 +1,18 @@
 package it.corso.mygym.model;
 
 
-import it.corso.mygym.enums.SubscriptionType;
+import it.corso.mygym.model.enums.SubscriptionType;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.Date;
 
 @NoArgsConstructor
 @Data
 @Entity
-@Table(name = "Subscription")
+
 public class Subscription implements Serializable {
 
     @Id

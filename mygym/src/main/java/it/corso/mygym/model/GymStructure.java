@@ -10,7 +10,6 @@ import java.util.List;
 @Entity
 @Data
 @NoArgsConstructor
-@Table(name = "Gym")
 public class GymStructure implements Serializable {
 
     @Id

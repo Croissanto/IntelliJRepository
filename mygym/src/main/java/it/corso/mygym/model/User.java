@@ -14,7 +14,6 @@ import java.util.List;
 @NoArgsConstructor
 @Data
 @Entity
-@Table(name = "User")
 public class User implements Serializable {
 
     @Id
