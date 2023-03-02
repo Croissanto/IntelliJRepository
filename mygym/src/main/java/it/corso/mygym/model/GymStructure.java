@@ -1,31 +1,24 @@
 package it.corso.mygym.model;
 
-
 import lombok.Data;
-import lombok.Generated;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.time.LocalDate;
-import java.util.Date;
 import java.util.List;
 
-@NoArgsConstructor
-@Data
 @Entity
-public class User {
+@Data
+@NoArgsConstructor
+public class GymStructure {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long Id;
     private String name;
-    private String surname;
+    private String address;
     private String email;
-    private LocalDate birthDay;
-    private boolean isCertifiedMedically;
+    private String pIva;
     @OneToMany
-    private List<Subscription> subscriptionList;
-
-
+    private List<Subscription> availableSubscriptions;
 
 }
