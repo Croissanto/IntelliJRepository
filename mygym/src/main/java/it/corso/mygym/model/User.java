@@ -13,6 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 @Data
 @Entity
+@Table(name = "User")
 public class User {
 
     @Id
@@ -23,9 +24,9 @@ public class User {
     private String email;
     private LocalDate birthDay;
     private boolean isCertifiedMedically;
-    @OneToMany
+    private boolean activated;
+    @OneToMany(mappedBy = "user")
     private List<Subscription> subscriptionList;
-
 
 
 }

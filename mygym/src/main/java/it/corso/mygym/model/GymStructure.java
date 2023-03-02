@@ -9,6 +9,7 @@ import java.util.List;
 @Entity
 @Data
 @NoArgsConstructor
+@Table(name = "Gym")
 public class GymStructure {
 
     @Id
@@ -18,7 +19,8 @@ public class GymStructure {
     private String address;
     private String email;
     private String pIva;
-    @OneToMany
+    @OneToMany(mappedBy = "gym")
     private List<Subscription> availableSubscriptions;
+
 
 }
