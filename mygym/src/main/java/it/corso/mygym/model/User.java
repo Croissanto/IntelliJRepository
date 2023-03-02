@@ -25,7 +25,7 @@ public class User implements Serializable {
     private String email;
     private LocalDate birthDay;
     private boolean isCertifiedMedically;
-    private boolean activated;
+    private boolean activeFlag;
     @OneToMany(mappedBy = "user")
     private List<Subscription> subscriptionList;
 
