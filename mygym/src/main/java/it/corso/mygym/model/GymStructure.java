@@ -4,13 +4,14 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 
 @Entity
 @Data
 @NoArgsConstructor
 @Table(name = "Gym")
-public class GymStructure {
+public class GymStructure implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
