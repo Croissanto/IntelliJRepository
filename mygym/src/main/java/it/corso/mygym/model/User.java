@@ -23,7 +23,7 @@ public class User implements Serializable {
     private String surname;
     private String email;
     private LocalDate birthDay;
-    private boolean isCertifiedMedically;
+    private boolean certifiedMedically;
     private boolean activeFlag;
     @OneToMany(mappedBy = "user")
     private List<Subscription> subscriptionList;
