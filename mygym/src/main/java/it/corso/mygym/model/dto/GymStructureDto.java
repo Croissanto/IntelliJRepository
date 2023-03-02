@@ -9,7 +9,7 @@ import java.util.List;
 @NoArgsConstructor
 public class GymStructureDto {
 
-
+    private long id;
     private String name;
     private String address;
     private String email;
