@@ -2,6 +2,7 @@ package it.corso.mygym.controller;
 
 import it.corso.mygym.model.User;
 import it.corso.mygym.model.dto.UserDto;
+import it.corso.mygym.model.exceptions.UserNotFoundException;
 import it.corso.mygym.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -47,7 +48,7 @@ public class UserControllerImpl implements UserController{
     @PutMapping("/update/{id}")
     public ResponseEntity<User> update(@PathVariable("id") long id,@RequestBody UserDto dto) {
         User user = userService.update(id, dto);
-        return new ResponseEntity<>(user, HttpStatus.ACCEPTED);
+        return ResponseEntity.ok(user);
     }
 
     @Override
@@ -55,5 +56,12 @@ public class UserControllerImpl implements UserController{
     public boolean deleteById(@PathVariable("id") long id) {
         userService.deleteById(id);
         return true;
+    }
+
+    @ExceptionHandler({UserNotFoundException.class})
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    private ResponseEntity<?> userNotFound(RuntimeException e){
+
+        return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
     }
 }
