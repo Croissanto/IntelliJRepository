@@ -34,7 +34,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User findById(long id) {
-
+        validateIdExists(id);
         Optional<User> opt = userRepo.findById(id);
         return opt.orElse(null);
     }
