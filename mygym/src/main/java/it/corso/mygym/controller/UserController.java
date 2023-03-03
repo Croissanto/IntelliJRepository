@@ -22,7 +22,7 @@ public interface UserController {
     @GetMapping("/all")
     ResponseEntity<List<User>> findAll();
 
-    @PutMapping("/update/{id}")
+    @PutMapping("/{id}")
     ResponseEntity<User> update(@PathVariable("id") long id, UserDto dto) throws UserNotFoundException;
 
     @DeleteMapping("/{id}")
