@@ -15,7 +15,7 @@ import java.util.List;
 public class GymStructureControllerImpl implements GymStructureController{
 
 
-    private GymStructureService gymService;
+    private final GymStructureService gymService;
 
 
     @Autowired
