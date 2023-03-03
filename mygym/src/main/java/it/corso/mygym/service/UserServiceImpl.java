@@ -58,15 +58,14 @@ public class UserServiceImpl implements UserService {
     @Override
     public User update(long id, UserDto dto) {
         Optional<User> opt = userRepo.findById(id);
-        if(opt.isPresent()) {
-        User user = opt.get();
-            user.setName(dto.getName());
-            user.setSurname(dto.getSurname());
-            user.setEmail(dto.getEmail());
-            user.setBirthDay(dto.getBirthDay());
-            user.setCertifiedMedically(dto.isCertifiedMedically());
-            user.setActiveFlag(dto.isActiveFlag());
-        return userRepo.saveAndFlush(user);
+        dto.setId(id);
+
+        if(opt.isPresent()){
+            User user = opt.get();
+            copyNonNullProperties(dto, user);
+            dto.setId(id);
+
+            return userRepo.saveAndFlush(user);
 
         }
 
