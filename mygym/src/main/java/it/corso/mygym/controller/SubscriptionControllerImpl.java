@@ -30,7 +30,7 @@ public class SubscriptionControllerImpl implements SubscriptionController{
 
     @Override
     @GetMapping("/subscriptions/{id}")
-    public ResponseEntity<Subscription> findById(@PathVariable long id) {
+    public ResponseEntity<Subscription> findById(@PathVariable("id") long id) {
         Subscription subscription = subscriptionService.findById(id);
         return new ResponseEntity<>(subscription, HttpStatus.FOUND);
     }

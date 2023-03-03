@@ -13,5 +13,5 @@ public interface GymStructureController {
     ResponseEntity<GymStructure> save(@RequestBody GymStructureDto dto);
 
     @GetMapping("/{id}")
-    ResponseEntity<GymStructure> findById(@PathVariable long id);
+    ResponseEntity<GymStructure> findById(@PathVariable("id") long id);
 }

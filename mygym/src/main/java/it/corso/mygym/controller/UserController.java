@@ -22,9 +22,9 @@ public interface UserController {
     ResponseEntity<List<User>> findAll();
 
     @PutMapping("/update/{id}")
-    ResponseEntity<User> update(@PathVariable long id, UserDto dto);
+    ResponseEntity<User> update(@PathVariable("id") long id, UserDto dto);
 
     @DeleteMapping("/{id}")
-    boolean deleteById(@PathVariable long id);
+    boolean deleteById(@PathVariable("id") long id);
 
 }

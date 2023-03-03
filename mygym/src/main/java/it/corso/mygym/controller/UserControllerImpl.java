@@ -45,13 +45,14 @@ public class UserControllerImpl implements UserController{
 
     @Override
     @PutMapping("/update/{id}")
-    public ResponseEntity<User> update(@PathVariable long id,@RequestBody UserDto dto) {
+    public ResponseEntity<User> update(@PathVariable("id") long id,@RequestBody UserDto dto) {
         User user = userService.update(id, dto);
         return new ResponseEntity<>(user, HttpStatus.ACCEPTED);
     }
 
     @Override
-    public boolean deleteById(long id) {
+    @DeleteMapping("/{id}")
+    public boolean deleteById(@PathVariable("id") long id) {
         userService.deleteById(id);
         return true;
     }

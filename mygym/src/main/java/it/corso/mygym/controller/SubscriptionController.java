@@ -12,5 +12,5 @@ public interface SubscriptionController {
     ResponseEntity<Subscription> save(@RequestBody SubscriptionDto dto);
 
     @GetMapping("/subscriptions/{id}")
-    ResponseEntity<Subscription> findById(@PathVariable long id);
+    ResponseEntity<Subscription> findById(@PathVariable("id") long id);
 }

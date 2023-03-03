@@ -31,7 +31,7 @@ public class GymStructureControllerImpl implements GymStructureController{
 
     @Override
     @GetMapping("/{id}")
-    public ResponseEntity<GymStructure> findById(@PathVariable long id) {
+    public ResponseEntity<GymStructure> findById(@PathVariable("id") long id) {
         GymStructure gym = gymService.findById(id);
         return new ResponseEntity<>(gym, HttpStatus.FOUND);
     }
