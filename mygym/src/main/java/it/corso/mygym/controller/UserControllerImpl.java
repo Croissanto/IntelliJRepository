@@ -44,7 +44,7 @@ public class UserControllerImpl implements UserController{
     }
 
     @Override
-    @PostMapping("/update/{id}")
+    @PutMapping("/update/{id}")
     public ResponseEntity<User> update(@PathVariable long id,@RequestBody UserDto dto) {
         User user = userService.update(id, dto);
         return new ResponseEntity<>(user, HttpStatus.ACCEPTED);

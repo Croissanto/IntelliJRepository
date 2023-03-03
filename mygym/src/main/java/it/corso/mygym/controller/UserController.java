@@ -21,7 +21,7 @@ public interface UserController {
     @GetMapping("/all")
     ResponseEntity<List<User>> findAll();
 
-    @PostMapping("/update/{id}")
+    @PutMapping("/update/{id}")
     ResponseEntity<User> update(@PathVariable long id, UserDto dto);
 
     @DeleteMapping("/{id}")

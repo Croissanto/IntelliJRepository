@@ -53,7 +53,7 @@ public class UserServiceImpl implements UserService {
         Optional<User> opt = userRepo.findById(id);
         if(opt.isPresent()) {
         User user = opt.get();
-        user.setName(dto.getName());
+            user.setName(dto.getName());
             user.setSurname(dto.getSurname());
             user.setEmail(dto.getEmail());
             user.setBirthDay(dto.getBirthDay());
