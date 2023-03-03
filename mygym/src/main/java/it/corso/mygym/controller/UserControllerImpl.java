@@ -58,6 +58,12 @@ public class UserControllerImpl implements UserController{
         return true;
     }
 
+    @Override
+    public ResponseEntity<List<User>> findTop3ByBirthDayDesc() {
+        List<User> userList = userService.findTop3ByOrderByBirthDayDesc();
+        return new ResponseEntity<>(userList, HttpStatus.FOUND);
+    }
+
     @ExceptionHandler({UserNotFoundException.class})
     @ResponseStatus(HttpStatus.NOT_FOUND)
     private ResponseEntity<?> userNotFound(RuntimeException e){

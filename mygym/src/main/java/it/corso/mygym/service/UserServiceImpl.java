@@ -45,6 +45,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public List<User> findTop3ByOrderByBirthDayDesc() {
+        return userRepo.findTop3ByOrderByBirthDayDesc();
+    }
+
+    @Override
     public boolean deleteById(long id) {
         try {
             userRepo.deleteById(id);

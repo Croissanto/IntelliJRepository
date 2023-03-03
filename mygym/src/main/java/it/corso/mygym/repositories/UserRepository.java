@@ -10,7 +10,7 @@ import java.util.List;
 public interface UserRepository extends JpaRepository<User, Long> {
 
     List<User> findByActiveFlagTrue();
-
+    List<User> findTop3ByOrderByBirthDayDesc();
     List<User> findByCertifiedMedicallyTrue();
 
 }

@@ -13,6 +13,8 @@ public interface UserService {
 
     List<User> findAll();
 
+    List<User> findTop3ByOrderByBirthDayDesc();
+
     boolean deleteById(long id);
 
     User update(long id, UserDto user);

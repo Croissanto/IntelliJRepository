@@ -28,4 +28,7 @@ public interface UserController {
     @DeleteMapping("/{id}")
     boolean deleteById(@PathVariable("id") long id);
 
+    @GetMapping("/top3ByBirthDay")
+    ResponseEntity<List<User>> findTop3ByBirthDayDesc();
+
 }
