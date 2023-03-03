@@ -1,7 +1,9 @@
 package it.corso.mygym.service;
 
+import it.corso.mygym.Constants;
 import it.corso.mygym.model.User;
 import it.corso.mygym.model.dto.UserDto;
+import it.corso.mygym.model.exceptions.UserNotFoundException;
 import it.corso.mygym.repositories.UserRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.BeanUtils;
@@ -86,6 +88,10 @@ public class UserServiceImpl implements UserService {
         }
         String[] result = new String[emptyNames.size()];
         return emptyNames.toArray(result);
+    }
+
+    private void validateIdExists(final Long id) {
+        if (userRepo.findById(id).isEmpty()) throw new UserNotFoundException(Constants.USER_NOT_FOUND_EXCEPTION, id);
     }
 
 
