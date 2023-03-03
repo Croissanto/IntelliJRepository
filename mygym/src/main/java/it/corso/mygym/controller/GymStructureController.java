@@ -5,6 +5,8 @@ import it.corso.mygym.model.dto.GymStructureDto;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 
 @RequestMapping("/gyms")
 public interface GymStructureController {
@@ -14,4 +16,7 @@ public interface GymStructureController {
 
     @GetMapping("/{id}")
     ResponseEntity<GymStructure> findById(@PathVariable("id") long id);
+
+    @GetMapping("/all")
+    ResponseEntity<List<GymStructure>> findAll();
 }

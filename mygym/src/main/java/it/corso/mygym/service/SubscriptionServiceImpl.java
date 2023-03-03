@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -27,6 +28,11 @@ public class SubscriptionServiceImpl implements SubscriptionService {
     public Subscription findById(long id) {
         Optional<Subscription> opt = subscriptionRepo.findById(id);
         return opt.orElse(null);
+    }
+
+    @Override
+    public List<Subscription> findAll() {
+        return subscriptionRepo.findAll();
     }
 
     @Override

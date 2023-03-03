@@ -8,6 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/gyms")
 public class GymStructureControllerImpl implements GymStructureController{
@@ -34,5 +36,11 @@ public class GymStructureControllerImpl implements GymStructureController{
     public ResponseEntity<GymStructure> findById(@PathVariable("id") long id) {
         GymStructure gym = gymService.findById(id);
         return new ResponseEntity<>(gym, HttpStatus.FOUND);
+    }
+
+    @Override
+    public ResponseEntity<List<GymStructure>> findAll() {
+        List<GymStructure> gymStructureList = gymService.findAll();
+        return new ResponseEntity<>(gymStructureList, HttpStatus.FOUND);
     }
 }

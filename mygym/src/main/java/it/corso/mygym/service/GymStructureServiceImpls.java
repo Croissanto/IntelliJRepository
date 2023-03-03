@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -27,6 +28,11 @@ public class GymStructureServiceImpls implements GymStructureService {
     public GymStructure findById(long id) {
         Optional<GymStructure> opt = gymRepo.findById(id);
         return opt.orElse(null);
+    }
+
+    @Override
+    public List<GymStructure> findAll() {
+        return gymRepo.findAll();
     }
 
     @Override
