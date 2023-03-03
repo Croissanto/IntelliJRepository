@@ -24,4 +24,7 @@ public interface UserController {
     @PostMapping("/update/{id}")
     ResponseEntity<User> update(@PathVariable long id, UserDto dto);
 
+    @DeleteMapping("/{id}")
+    boolean deleteById(@PathVariable long id);
+
 }

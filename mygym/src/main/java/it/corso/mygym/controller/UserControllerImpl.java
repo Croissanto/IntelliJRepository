@@ -49,4 +49,10 @@ public class UserControllerImpl implements UserController{
         User user = userService.update(id, dto);
         return new ResponseEntity<>(user, HttpStatus.ACCEPTED);
     }
+
+    @Override
+    public boolean deleteById(long id) {
+        userService.deleteById(id);
+        return true;
+    }
 }
