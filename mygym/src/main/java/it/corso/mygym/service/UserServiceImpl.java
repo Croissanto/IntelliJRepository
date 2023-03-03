@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -32,6 +33,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public List<User> findAll() {
+        return userRepo.findAll();
+    }
+
+    @Override
     public boolean deleteById(long id) {
         try {
             userRepo.deleteById(id);
@@ -45,10 +51,14 @@ public class UserServiceImpl implements UserService {
     @Override
     public User update(long id, UserDto dto) {
         Optional<User> opt = userRepo.findById(id);
-        dto.setId(id);
         if(opt.isPresent()) {
         User user = opt.get();
-        dto.setId(id);
+        user.setName(dto.getName());
+            user.setSurname(dto.getSurname());
+            user.setEmail(dto.getEmail());
+            user.setBirthDay(dto.getBirthDay());
+            user.setCertifiedMedically(dto.isCertifiedMedically());
+            user.setActiveFlag(dto.isActiveFlag());
         return userRepo.saveAndFlush(user);
 
         }
