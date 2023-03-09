@@ -1,4 +1,13 @@
+# syntax=docker/dockerfile:1
+
 FROM eclipse-temurin:17-jdk-jammy
-COPY target/*.jar app.jar
-EXPOSE 9001
-CMD ["java","-jar","/app.jar"]
+
+WORKDIR /app
+
+COPY .mvn/ .mvn
+COPY mvnw pom.xml ./
+RUN ./mvnw dependency:resolve
+
+COPY src ./src
+
+CMD ["./mvnw", "spring-boot:run"]
